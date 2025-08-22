@@ -1,0 +1,71 @@
+
+ATUALIZADO FINAL:
+
+import random
+
+def Criar_personagem():
+    print("Bem vindo ao jogo, o primeiro passo é criar o seu personagem, vamos começar")
+    nome = input("Digite o seu nome: ")
+    print("O nome escolhido foi:", nome)
+    return nome
+
+def rolar_4d6_descartar_menor():
+    dados = [random.randint(1, 6) for _ in range(4)]
+    print(f"Rolagens: {dados}")
+    dados.remove(min(dados))
+    total = sum(dados)
+    print(f"Resultado (descartando o menor): {total}")
+    return total
+
+def Tipo_Do_Personagem():
+    print("\nEscolha a classe do seu personagem:")
+    Classe = {
+        "1": "Mago",
+        "2": "Guerreiro",
+        "3": "Ladrão"
+    }
+
+    for chave, valor in Classe.items():
+        print(f"{chave}: {valor}")
+
+    opcao = input("Digite o número da classe escolhida: ")
+    classe_escolhida = Classe.get(opcao, "Classe inválida")
+    print("Classe escolhida foi:", classe_escolhida)
+
+    if classe_escolhida != "Classe inválida":
+        print("\nGerando os 6 valores de atributos (4d6, descarta o menor):")
+        valores = [rolar_4d6_descartar_menor() for _ in range(6)]
+        print(f"\nValores disponíveis: {valores}")
+
+        atributos = ["Força", "Destreza", "Constituição", "Inteligência", "Sabedoria", "Carisma"]
+        atributos_final = {}
+
+        for atributo in atributos:
+            print(f"\nAtributos restantes: {valores}")
+            escolha = int(input(f"Escolha um valor para {atributo}: "))
+            if escolha in valores:
+                atributos_final[atributo] = escolha
+                valores.remove(escolha)
+            else:
+                print("Valor inválido, tente novamente!")
+                return Tipo_Do_Personagem() 
+
+        return classe_escolhida, atributos_final
+    else:
+        return classe_escolhida, {}
+
+def Main():
+    nome = Criar_personagem()
+    classe, atributos = Tipo_Do_Personagem()
+
+    if classe == "Classe inválida":
+        print("Por favor, reinicie e escolha uma classe válida.")
+    else:
+        print(f"\nPersonagem criado com sucesso!")
+        print(f"Nome: {nome}")
+        print(f"Classe: {classe}")
+        for atributo, valor in atributos.items():
+            print(f"{atributo}: {valor}")
+
+if __name__ == "__main__":
+    Main()
