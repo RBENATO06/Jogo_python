@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Resultado do Personagem</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #eef2f3;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url("{{ url_for('static', filename='TRABALHO.jpg') }}");
+            background-size: cover;       
+            background-position: center;  
+            background-repeat: no-repeat; 
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: white;
+            padding: 20px 40px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+            max-width: 400px;
+            text-align: center;
+        }
+        h1 { color: #333; }
+        ul { list-style-type: none; padding: 0; text-align: left; }
+        li { margin: 5px 0; }
+        a {
+            display: inline-block;
+            margin-top: 15px;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            background-color: #4CAF50;
+            color: white;
+        }
+        a:hover { background-color: #45a049; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Personagem Criado!</h1>
+        <p><strong>Nome:</strong> {{ nome }}</p>
+        <p><strong>Classe:</strong> {{ classe }}</p>
+        <p><strong>Raça:</strong> {{ raca }}</p>
+
+        <h2>Atributos</h2>
+        <ul>
+            {% for atributo, valor in atributos.items() %}
+                <li><strong>{{ atributo }}:</strong> {{ valor }}</li>
+            {% endfor %}
+        </ul>
+
+        <h2>Habilidades</h2>
+<ul>
+    {% for habilidade in habilidades %}
+        <li>{{ habilidade }}</li>
+    {% endfor %}
+</ul>
+
+        <a href="{{ url_for('index') }}">Voltar</a>
+    </div>
+</body>
+</html>
