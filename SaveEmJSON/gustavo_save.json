@@ -1,0 +1,21 @@
+{
+    "nome": "Gustavo",
+    "raca": "Anão",
+    "classe": "Ladrão",
+    "atributos": {
+        "Força": 6,
+        "Destreza": 14,
+        "Constituição": 4,
+        "Inteligência": 16,
+        "Sabedoria": 12,
+        "Carisma": 10
+    },
+    "habilidades": [
+        "Ataque Furtivo",
+        "Evasão Rápida",
+        "Resistência de Pedra",
+        "Mãos Rápidas",
+        "Exploração Sem Medo"
+    ],
+    "estilo_criacao": "aventureiro"
+}

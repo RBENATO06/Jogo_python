@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Criação de Personagem</title>
+    <style>
+
+        html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+       body {
+        font-family: Arial, sans-serif;
+        background-image: url("/static/TRABALHO.jpg");
+        background-size: cover;  
+        background-position: center;  
+        background-repeat: no-repeat; 
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+        .container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px 40px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0,0,0,0.3);
+        }
+        h1 { 
+            text-align: center; 
+        }
+        label { 
+            display: block; 
+            margin-top: 10px; 
+        }
+        input, select, button {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            margin-top: 15px;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+        }
+        button:hover { 
+            background-color: #45a049; 
+        }
+
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Criação de Personagem</h1>
+        <form action="{{ url_for('criar_personagem') }}" method="POST">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" required>
+
+            <label for="classe">Classe:</label>
+            <select id="classe" name="classe">
+                <option value="Mago">Mago</option>
+                <option value="Guerreiro">Guerreiro</option>
+                <option value="Ladrão">Ladrão</option>
+            </select>
+
+            <label for="raca">Raça:</label>
+            <select id="raca" name="raca">
+                <option value="Humano">Humano</option>
+                <option value="Anão">Anão</option>
+                <option value="Elfo">Elfo</option>
+            </select>
+
+            <label for="estilo">Estilo de Geração:</label>
+            <select id="estilo" name="estilo">
+                <option value="classico">Clássico</option>
+                <option value="aventureiro">Aventureiro</option>
+                <option value="heroico">Heroico</option>
+            </select>
+
+            <button type="submit">Criar Personagem</button>
+        </form>
+    </div>
+</body>
+</html>

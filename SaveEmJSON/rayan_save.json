@@ -1,0 +1,21 @@
+{
+    "nome": "Rayan",
+    "raca": "Humano",
+    "classe": "Guerreiro",
+    "atributos": {
+        "Força": 16,
+        "Destreza": 8,
+        "Constituição": 12,
+        "Inteligência": 14,
+        "Sabedoria": 14,
+        "Carisma": 14
+    },
+    "habilidades": [
+        "Golpe Poderoso",
+        "Resistência de Ferro",
+        "Versatilidade Humana",
+        "Liderança em Batalha",
+        "Exploração Sem Medo"
+    ],
+    "estilo_criacao": "aventureiro"
+}
